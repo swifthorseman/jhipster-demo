@@ -1,0 +1,40 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "country_currency",
+            "otherEntityName": "currency",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "code",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "currency",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength",
+                "pattern"
+            ],
+            "fieldValidateRulesMinlength": "3",
+            "fieldValidateRulesMaxlength": "3",
+            "fieldValidateRulesPattern": "[A-Z][A-Z][A-Z]",
+            "fieldValidateRulesPatternJava": "[A-Z][A-Z][A-Z]"
+        }
+    ],
+    "changelogDate": "20150930095619",
+    "dto": "no",
+    "pagination": "no"
+}
