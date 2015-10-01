@@ -1,0 +1,89 @@
+<div>
+    <h2>CardProductTypes</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="cardProductType.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new CardProductType</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteCardProductTypeConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(cardProductType.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this CardProductType?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Card_band</th>
+                    <th>Card_product_type_code</th>
+                    <th>Card_product_type_name</th>
+                    <th>Card_scheme_id</th>
+                    <th>Card_scheme_name</th>
+                    <th>Loading_date</th>
+                    <th>Scheme</th>
+                    <th>Debit_credit</th>
+                    <th>Display_flag</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cardProductType in cardProductTypes">
+                    <td><a ui-sref="cardProductType.detail({id:cardProductType.id})">{{cardProductType.id}}</a></td>
+                    <td>{{cardProductType.card_band}}</td>
+                    <td>{{cardProductType.card_product_type_code}}</td>
+                    <td>{{cardProductType.card_product_type_name}}</td>
+                    <td>{{cardProductType.card_scheme_id}}</td>
+                    <td>{{cardProductType.card_scheme_name}}</td>
+                    <td>{{cardProductType.loading_date}}</td>
+                    <td>{{cardProductType.scheme}}</td>
+                    <td>{{cardProductType.debit_credit}}</td>
+                    <td>{{cardProductType.display_flag}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="cardProductType.detail({id:cardProductType.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="cardProductType.edit({id:cardProductType.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(cardProductType.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

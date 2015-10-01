@@ -1,0 +1,132 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myCardProductTypeLabel">Create or edit a CardProductType</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="cardProductType.id" readonly>
+        </div>
+        <div class="form-group">
+            <label for="field_card_band">Card_band</label>
+            <input type="text" class="form-control" name="card_band" id="field_card_band"
+                    ng-model="cardProductType.card_band"
+                    ng-maxlength="100">
+            <div ng-show="editForm.card_band.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.card_band.$error.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_card_product_type_code">Card_product_type_code</label>
+            <input type="text" class="form-control" name="card_product_type_code" id="field_card_product_type_code"
+                    ng-model="cardProductType.card_product_type_code"
+                    ng-maxlength="100">
+            <div ng-show="editForm.card_product_type_code.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.card_product_type_code.$error.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_card_product_type_name">Card_product_type_name</label>
+            <input type="text" class="form-control" name="card_product_type_name" id="field_card_product_type_name"
+                    ng-model="cardProductType.card_product_type_name"
+                    ng-maxlength="100">
+            <div ng-show="editForm.card_product_type_name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.card_product_type_name.$error.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_card_scheme_id">Card_scheme_id</label>
+            <input type="text" class="form-control" name="card_scheme_id" id="field_card_scheme_id"
+                    ng-model="cardProductType.card_scheme_id"
+                    ng-maxlength="100">
+            <div ng-show="editForm.card_scheme_id.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.card_scheme_id.$error.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_card_scheme_name">Card_scheme_name</label>
+            <input type="text" class="form-control" name="card_scheme_name" id="field_card_scheme_name"
+                    ng-model="cardProductType.card_scheme_name"
+                    ng-maxlength="100">
+            <div ng-show="editForm.card_scheme_name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.card_scheme_name.$error.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_loading_date">Loading_date</label>
+            <input type="date" class="form-control" name="loading_date" id="field_loading_date"
+                    ng-model="cardProductType.loading_date"
+                    >
+        </div>
+        <div class="form-group">
+            <label for="field_scheme">Scheme</label>
+            <input type="text" class="form-control" name="scheme" id="field_scheme"
+                    ng-model="cardProductType.scheme"
+                    ng-maxlength="100">
+            <div ng-show="editForm.scheme.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.scheme.$error.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_debit_credit">Debit_credit</label>
+            <input type="text" class="form-control" name="debit_credit" id="field_debit_credit"
+                    ng-model="cardProductType.debit_credit"
+                    ng-maxlength="100">
+            <div ng-show="editForm.debit_credit.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.debit_credit.$error.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_display_flag">Display_flag</label>
+            <input type="text" class="form-control" name="display_flag" id="field_display_flag"
+                    ng-model="cardProductType.display_flag"
+                    ng-minlength="1" ng-maxlength="1">
+            <div ng-show="editForm.display_flag.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.display_flag.$error.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.display_flag.$error.maxlength" translate-value-max="1">
+                    This field cannot be longer than 1 characters.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || editForm.$submitted" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
